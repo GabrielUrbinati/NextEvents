@@ -18,7 +18,7 @@ Permitir que os usuários descubram eventos de forma prática e organizada, com 
 
 ## 📂 Estrutura de Pastas
 
-eventos-app/
+'eventos-app/
 │
 ├── public/
 │   └── favicon.ico
@@ -63,4 +63,4 @@ eventos-app/
 │
 ├── .gitignore
 ├── package.json
-├── README.md
+├── README.md'
