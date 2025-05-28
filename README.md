@@ -56,7 +56,8 @@ eventos-app/
 │   │   └── components.module.css # Estilos CSS Modules (opcional)
 ├── .gitignore
 ├── package.json
-└── README.md```
+└── README.md
+```
 
 # 🎫 NextEvents – Plataforma de Eventos no Brasil
 
