@@ -59,6 +59,8 @@ eventos-app/
 └── README.md
 ```
 
+
+
 # 🎫 NextEvents – Plataforma de Eventos no Brasil
 
 Aplicação web feita com **Next.js** que consome a API da **Ticketmaster** para listar e filtrar eventos culturais no Brasil. Interface responsiva com navegação fluida e contextualização via Context API.
