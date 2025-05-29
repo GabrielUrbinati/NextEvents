@@ -95,8 +95,33 @@ Presente no menu lateral, visível apenas quando **não estamos na tela de event
 
 ### ⚙️ O que ele faz?
 - Ao ser clicado, mostra **botões de cidades** extraídas da resposta da API.
+- Apenas retorna os botões para as cidades que encontra no fetch, dinamicamente
 - Usa os nomes das cidades onde há eventos disponíveis no Brasil.
 - Filtra automaticamente a partir do retorno da Ticketmaster e remove duplicatas com `Set`.
+  
+
+E o menu só será mostrado se o estado `menuAberto` for `true` e `cidadesComEvento.length > 0`.
+
+---
+
+### 📌 Renderização dos botões (em JSX)
+
+```jsx
+{menuAberto && (
+  <div>
+    {cidadesComEvento.map((cidade) => (
+      <button
+        key={cidade}
+        className={style.botaoVerde}
+        onClick={() => buscarEventos(cidade)}
+      >
+        {cidade}
+      </button>
+    ))}
+  </div>
+)}
+```
+
 
 ### 📡 Fonte das cidades
 ```js
