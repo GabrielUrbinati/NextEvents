@@ -142,11 +142,7 @@ const cidadesUnicas = Array.from(cidades).sort();
 
 ---
 
-## 📁 Estimativa de tamanho do projeto
 
-- ~280-320 linhas de JS/JSX
-- ~100-150 linhas de CSS
-- Total estimado: **~400 a 500 linhas de código**
 
 ---
 
