@@ -1,163 +1,36 @@
-# NextEvents
-Projeto de NodeJS
-# 🎭 Eventos Culturais - Web App
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Este é um projeto em React para exibição de eventos culturais por **data**, **localização**, **gêneros** e **proximidade**, com consumo de uma **API externa de eventos**.
+## Getting Started
 
-## 🚀 Objetivo
-
-Permitir que os usuários descubram eventos de forma prática e organizada, com foco em usabilidade e acessibilidade. O sistema inclui filtros por data e localização, detalhes completos dos eventos e favoritos personalizados.
-
-## 🛠️ Tecnologias Utilizadas
-
-- [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
-- [Axios](https://axios-http.com/) para consumo de API
-- [JavaScript (ES6+)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- CSS/Styled Components ou Tailwind (à escolha)
-
-## 📂 Estrutura de Pastas
-
+First, run the development server:
 
 ```bash
-eventos-app/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── app/
-│   │   ├── page.js               # Página inicial (home)
-│   │   ├── layout.js             # Layout global com <Menu />
-│   │   ├── globals.css           # Estilos globais
-│   │   ├── page.module.css       # Estilos locais (ex: home)
-│   │   ├── evento/
-│   │   │   └── [id]/
-│   │   │       └── page.js       # Página de detalhes do evento
-│   │   ├── buscar/
-│   │   │   ├── data/
-│   │   │   │   └── page.js       # Busca por data
-│   │   │   ├── localizacao/
-│   │   │   │   └── page.js       # Busca por localização
-│   │   │   └── genero/
-│   │   │       └── page.js       # Busca por gênero
-│   │   └── favoritos/
-│   │       └── page.js           # Lista de eventos favoritados
-│   ├── components/
-│   │   ├── Menu.jsx              # Navegação principal (com <Link />)
-│   │   ├── EventoCard.jsx        # Cartão resumo de evento
-│   │   ├── EventoDetalhes.jsx    # Detalhes completos
-│   │   ├── BuscarPorData.jsx
-│   │   ├── BuscarPorLocalizacao.jsx
-│   │   ├── Generos.jsx
-│   │   └── PertoDeVoce.jsx
-│   ├── services/
-│   │   └── api.js                # Axios configs e chamadas à API
-│   ├── styles/
-│   │   ├── variables.css         # Variáveis globais de estilo
-│   │   └── components.module.css # Estilos CSS Modules (opcional)
-├── .gitignore
-├── package.json
-└── README.md
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-# 🎫 NextEvents – Plataforma de Eventos no Brasil
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Aplicação web feita com **Next.js** que consome a API da **Ticketmaster** para listar e filtrar eventos culturais no Brasil. Interface responsiva com navegação fluida e contextualização via Context API.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## 🧠 Como funciona o projeto?
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-A aplicação é composta por:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 🏠 Home (`Home.jsx`)
-- Exibe eventos com base na cidade selecionada ou mostra todos os do Brasil.
-- Usa o componente `EventoCard` para renderizar cada evento individualmente.
+## Deploy on Vercel
 
-### 📌 Menu lateral (`Menu.jsx`)
-- Permite navegar entre páginas (Home, Sobre, Contato).
-- Mostra um botão para buscar eventos por cidade, que abre uma lista de cidades disponíveis com eventos.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### 🧩 EventoCard (`EventoCard.jsx`)
-- Componente visual de cada evento.
-- Mostra imagem, nome, data e local.
-- Todo o card é clicável e redireciona para a rota dinâmica `/evento/[slug]`.
-
-### 🧠 Contexto (`EventosContext.jsx`)
-- Centraliza os dados de eventos e a função `buscarEventos`.
-- Permite que vários componentes compartilhem esses dados sem prop drilling.
-
----
-
-## 🔍 Como funciona o botão “Buscar Eventos por Cidade”
-
-### ✅ Localização
-Presente no menu lateral, visível apenas quando **não estamos na tela de evento individual**.
-
-### ⚙️ O que ele faz?
-- Ao ser clicado, mostra **botões de cidades** extraídas da resposta da API.
-- Apenas retorna os botões para as cidades que encontra no fetch, dinamicamente
-- Usa os nomes das cidades onde há eventos disponíveis no Brasil.
-- Filtra automaticamente a partir do retorno da Ticketmaster e remove duplicatas com `Set`.
-  
-
-E o menu só será mostrado se o estado `menuAberto` for `true` e `cidadesComEvento.length > 0`.
-
----
-
-### 📌 Renderização dos botões (em JSX)
-
-```jsx
-{menuAberto && (
-  <div>
-    {cidadesComEvento.map((cidade) => (
-      <button
-        key={cidade}
-        className={style.botaoVerde}
-        onClick={() => buscarEventos(cidade)}
-      >
-        {cidade}
-      </button>
-    ))}
-  </div>
-)}
-```
-
-
-### 📡 Fonte das cidades
-```js
-eventos.map((e) => e._embedded?.venues?.[0]?.city?.name).filter(Boolean)
-```
-
-- Esse trecho coleta a cidade do local do evento.
-- Converte o resultado em uma lista única com `Array.from(new Set(...))`.
-
-### 📲 O que acontece ao clicar em uma cidade?
-- Executa `buscarEventos(cidade)`
-- Refaz a requisição para API com a cidade como parâmetro
-- Atualiza a tela com os eventos correspondentes
-
----
-
-## 📦 Porque usamos Context API?
-
-- Para compartilhar `eventos`, `buscarEventos()` e `cidadeSelecionada` entre os componentes.
-- Evita passar props manualmente por várias camadas (prop drilling).
-- Simples e eficaz para esse tipo de app SPA com dados globais.
-
-### 🧠 Componentes que usam o Context:
-- `Menu.jsx`
-- `Home.jsx`
-
----
-
-## 📁 Estimativa de tamanho do projeto
-
-- ~280-320 linhas de JS/JSX
-- ~100-150 linhas de CSS
-- Total estimado: **~400 a 500 linhas de código**
-
----
-
-Desenvolvido para estudo e prática com Next.js, APIs externas, contexto global e responsividade.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

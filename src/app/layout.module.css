@@ -1,0 +1,10 @@
+.section {
+    display: flex;
+    height: 100vh; /* altura da tela toda */
+  }
+  .content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  

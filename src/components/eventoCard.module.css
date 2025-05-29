@@ -1,0 +1,35 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.imagem {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.texto {
+  font-size: 0.9rem;
+  color: #555;
+}
+.linkLimpo {
+  text-decoration: none;
+  color: inherit;
+}
