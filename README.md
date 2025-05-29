@@ -20,42 +20,29 @@ Permitir que os usuários descubram eventos de forma prática e organizada, com 
 ## 📂 Estrutura de Pastas
 
 ```bash
-eventos-app/
+NEXTEVENTS2/
 ├── public/
-│   └── favicon.ico
+│   └── window.svg
 ├── src/
 │   ├── app/
-│   │   ├── page.js               # Página inicial (home)
-│   │   ├── layout.js             # Layout global com <Menu />
-│   │   ├── globals.css           # Estilos globais
-│   │   ├── page.module.css       # Estilos locais (ex: home)
-│   │   ├── evento/
-│   │   │   └── [id]/
-│   │   │       └── page.js       # Página de detalhes do evento
-│   │   ├── buscar/
-│   │   │   ├── data/
-│   │   │   │   └── page.js       # Busca por data
-│   │   │   ├── localizacao/
-│   │   │   │   └── page.js       # Busca por localização
-│   │   │   └── genero/
-│   │   │       └── page.js       # Busca por gênero
-│   │   └── favoritos/
-│   │       └── page.js           # Lista de eventos favoritados
+│   │   ├── layout.js            # Layout global com <Menu />
+│   │   ├── globals.css          # Estilos globais
+│   │   ├── layout.module.css    # Estilos locais do layout
+│   │   ├── page.js              # Página inicial (home)
+│   │   └── evento/
+│   │       └── [id]/
+│   │           ├── page.jsx     # Página de detalhes do evento
+│   │           └── eventoPage.module.css
 │   ├── components/
-│   │   ├── Menu.jsx              # Navegação principal (com <Link />)
-│   │   ├── EventoCard.jsx        # Cartão resumo de evento
-│   │   ├── EventoDetalhes.jsx    # Detalhes completos
-│   │   ├── BuscarPorData.jsx
-│   │   ├── BuscarPorLocalizacao.jsx
-│   │   ├── Generos.jsx
-│   │   └── PertoDeVoce.jsx
-│   ├── services/
-│   │   └── api.js                # Axios configs e chamadas à API
-│   ├── styles/
-│   │   ├── variables.css         # Variáveis globais de estilo
-│   │   └── components.module.css # Estilos CSS Modules (opcional)
+│   │   ├── EventoCard.jsx
+│   │   ├── eventoCard.module.css
+│   │   ├── EventosContext.jsx   # Contexto com buscarEventos
+│   │   ├── Menu.jsx
+│   │   └── Menu.module.css
 ├── .gitignore
-├── package.json
+├── jsconfig.json
+├── next.config.mjs
+├── package-lock.json
 └── README.md
 ```
 
